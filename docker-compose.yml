@@ -19,6 +19,21 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3010:3000"
+    tty: true
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://localhost:3002
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
   db:
     image: mysql:8.0
     environment:
