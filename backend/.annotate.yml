@@ -1,3 +1,6 @@
 header: true
 sort: true
 index: true
+exclude_tests: true
+exclude_fixtures: true
+exclude_factories: true
