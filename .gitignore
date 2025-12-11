@@ -1,5 +1,6 @@
-# MySQL data
-backend/db/
+# ridgepoleを導入するのでschemafileは不要
+backend/db/schema.rb
+backend/db/migrate/
 
 # Node modules
 frontend/node_modules/
