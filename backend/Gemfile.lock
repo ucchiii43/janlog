@@ -94,6 +94,7 @@ GEM
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    diffy (3.4.4)
     dotenv (3.2.0)
     drb (2.2.3)
     ed25519 (1.4.0)
@@ -229,6 +230,10 @@ GEM
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
+    ridgepole (3.1.2)
+      activerecord (>= 6.1, < 8.2)
+      diffy
+      logger
     rubocop (1.81.7)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -316,6 +321,7 @@ DEPENDENCIES
   mysql2 (~> 0.5)
   puma (>= 5.0)
   rails (~> 8.1.1)
+  ridgepole
   rubocop-rails-omakase
   solid_cable
   solid_cache
