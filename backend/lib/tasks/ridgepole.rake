@@ -5,6 +5,9 @@ namespace :ridgepole do
 
     ridgepole('--apply', '-E development', '-s primary', "-f #{schema_file}", '--drop-table')
     ridgepole('--apply', '-E test', '-s primary', "-f #{schema_file}", '--drop-table')
+
+    # モデルファイルにアノテーションを追加する
+    system('bundle exec annotaterb models') if Rails.env.local?
   end
 
   private
