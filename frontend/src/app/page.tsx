@@ -1,3 +1,5 @@
+import  Link from "next/link";
+
 const topPageQuery = `
   query GetTopPageData {
     topPage {
@@ -95,7 +97,7 @@ export default async function Home() {
               {sessions.length > 0 ? (
                 sessions.map((session) => (
                   <li key={session.id} className="p-2 border rounded-lg dark:border-zinc-700">
-                    <span className="font-medium text-black dark:text-zinc-50">{session.title}</span>
+                    <Link href={`/mahjong_sessions/${session.id}/edit`} className="font-medium text-black dark:text-zinc-50">{session.title}</Link>
                   </li>
                 ))
               ) : (
