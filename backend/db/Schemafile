@@ -15,3 +15,20 @@ create_table "games", charset: "utf8mb4", collation: "utf8mb4_general_ci", force
   t.bigint "mahjong_session_id", null: false
   t.timestamp
 end
+
+create_table "mahjong_session_members", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  t.bigint "mahjong_session_id", null: false
+  t.bigint "member_id", null: false
+  t.timestamp
+  t.index ["mahjong_session_id", "member_id"], unique: true
+end
+
+create_table "game_members", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  t.bigint "game_id", null: false
+  t.bigint "member_id", null: false
+  t.integer "score", null: false, comment: "得点"
+  t.integer "rank", null: false, comment: "順位"
+  t.decimal "point", null: false, precision: 5, scale: 1, comment: "ポイント"
+  t.timestamp
+  t.index ["game_id", "member_id"], unique: true
+end
