@@ -3,6 +3,8 @@
 # Table name: games
 #
 #  id                 :bigint           not null, primary key
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #  mahjong_session_id :bigint           not null
 #
 class Game < ApplicationRecord

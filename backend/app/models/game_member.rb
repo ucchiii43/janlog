@@ -6,6 +6,8 @@
 #  point(ポイント) :decimal(5, 1)    not null
 #  rank(順位)      :integer          not null
 #  score(得点)     :integer          not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #  game_id         :bigint           not null
 #  member_id       :bigint           not null
 #
