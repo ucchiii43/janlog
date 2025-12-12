@@ -7,6 +7,8 @@
 #
 class MahjongSession < ApplicationRecord
 
+  has_many :games, dependent: :destroy
+
   before_validation :set_default_title
   validates :title, presence: true
 
