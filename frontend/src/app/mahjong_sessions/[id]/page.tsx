@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 const GRAPHQL_ENDPOINT =  "http://backend:3000/graphql";
 
@@ -67,6 +68,17 @@ export default async function SessionEditPage({ params }: PageProps) {
 
   return (
     <div className="container mx-auto p-8">
+
+      <Link
+        href="/"
+        className="text-blue-600 hover:text-blue-800 text-sm font-medium inline-flex items-center mb-6"
+      >
+
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        トップページへ戻る
+      </Link>
       <h1 className="text-3xl font-bold mb-6">
         {session.title}
       </h1>
