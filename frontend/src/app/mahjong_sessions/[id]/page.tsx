@@ -38,7 +38,7 @@ async function fetchSessionData(sessionId: string): Promise<MahjongSession | nul
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: mahjongSessionQuery,
-      variables: { id: '1' },
+      variables: { id: sessionId },
     }),
   });
 
