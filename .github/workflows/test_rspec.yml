@@ -1,0 +1,54 @@
+name: Test RSpec
+
+on:
+  pull_request:
+    paths:
+      - 'backend/**'
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: janlog_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    env:
+      RAILS_ENV: test
+      DATABASE_HOST: 127.0.0.1
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: ''
+      DATABASE_NAME: janlog_test
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.1
+          bundler-cache: true
+
+      - name: Setup Database
+        run: |
+          bundle exec rails db:create
+          bundle exec ridgepole --apply -E test -c config/database.yml -f db/Schemafile
+
+      - name: Run RSpec
+        run: bundle exec rspec
