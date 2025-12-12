@@ -112,6 +112,7 @@ GEM
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
     ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-gnu)
     fiber-storage (1.0.1)
     fugit (1.12.1)
       et-orbi (~> 1.4)
@@ -180,6 +181,8 @@ GEM
     net-ssh (7.3.0)
     nio4r (2.7.5)
     nokogiri (1.18.10-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
     ostruct (0.6.3)
     parallel (1.27.0)
@@ -327,6 +330,7 @@ GEM
     stringio (3.1.9)
     thor (1.4.0)
     thruster (0.1.16-aarch64-linux)
+    thruster (0.1.16-x86_64-linux)
     timeout (0.5.0)
     tsort (0.2.0)
     tzinfo (2.0.6)
@@ -344,6 +348,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  x86_64-linux
 
 DEPENDENCIES
   annotaterb
