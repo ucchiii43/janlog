@@ -7,4 +7,6 @@
 #
 class Game < ApplicationRecord
   belongs_to :mahjong_session
+  has_many :game_members, dependent: :destroy
+  has_many :members, through: :game_members
 end
